@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Demo</title>
+</head>
+
+<body>
+
+  <a href="/foo/bar">Server side routing</a>
+  <a id="client-side-routing" href="/foo/bar">Client side routing</a>
+
+  <script>
+    document.querySelector('#client-side-routing').addEventListener('click', (e) => {
+      // stop server routing
+      e.preventDefault();
+      // instead, push a new item onto the history stack
+      window.history.pushState(null, '', e.currentTarget.getAttribute('href'));
+    });
+  </script>
+
+</body>
+
+
+
+</html>
